@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+	table {
+		border-collapse: collapse;
+		margin: 25px;
+	}
+
+	table, td, th {
+		border: 1px solid #70AEC5;
+	}
+	td
+	{
+		padding: 3px;
+	}
+
+	th {
+		 border: 1px solid white;
+		 background-color: #70AEC5;
+		 color: white;
+		 text-align: center;
+		 padding: 4px 0 4px 0;
+	 }
+
+	 /*
+	tr:nth-child(even) {background: #CCC}
+	tr:nth-child(odd) {background: #FFF}
+	*/
+	tr:hover{background: #ddd}
+
+	h1{
+		/* color: #70AEC5; */
+	}
+	
+	header
+	{
+		text-align:center;
+	}
+
+	form {
+		border-radius: 25px;
+		border: 2px solid #70AEC5;
+		padding: 10px; 
+		margin: 10px 25px 15px 25px;
+	}
+
+	button {
+	/*
+		background-color: #4CAF50; 
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 6px 22px;
+		cursor: pointer;
+		border-radius: 8px;
+		*/
+	}
+	  
+	fieldset{
+		padding:15px;
+	}
+	
+	footer{
+		margin:25px;
+	}
+	
+	.participants
+	{
+	-moz-column-count:4; /* Firefox */
+	-webkit-column-count:4; /* Safari and Chrome */
+	column-count:4;
+
+	-moz-column-gap:10px; /* Firefox */
+	-webkit-column-gap:10px; /* Safari and Chrome */
+	column-gap:10px;
+	}
+    </style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1><span id='program_year'></span> University College Day Program</h1>
+<!--h3>April 18, <script>document.write((new Date()).getFullYear())</script></h3-->
+<h3 id="ucd_date"></h3>
+<h3 id="message" class="text-danger"></h3>
+</header>
+
+<div class="text-center"><h2>Schedule of Events</h2></div>
+<div id="event_schedules"></div>
+
+<div class="text-center"><h2>Presentations</h2>
+<button id="view_by_btn" type="button" class="btn btn-info btn-lg">View by Start Time</button>
+</div>
+<div id="oral_schedules"></div>
+
+<div class="text-center"><h2>Posters</h2></div>
+<div id="poster_schedules"></div>
+
+<div class="text-center">
+<h2>List of Participants <br>(Faculty, Staff and Students) </h2>
+Click participant names to view their presentations or sponsorships 
+</div>
+<br>
+<div class="list-group">
+<div id="participants" class="list-group-item participants"></div>
+</div>
+
+<div class="text-center">
+<h2>UCD Committee Members</h2>
+</div>
+<div class="list-group">
+<div id="participants" class="list-group-item participants"></div>
+</div>
+
+
+<div class="list-group">
+<p class="list-group-item">
+* Special thanks to former computer science student, Kendall Baker and computer science professor, <a href="http://cs.txwes.edu/faculty">Dr. Yukong Zhang</a>, for developing a database-driven Web application 
+for the University College Day (UCD) to process proposal submissions and generate an electronic version of the program. 
+</p>
+</div>
+<!-- This modal (popup window) is used to display presenations associated with a participant -->
+<!-- Participant Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h4 class="modal-title text-center">Activities by <span id="participant_name" class="text-success text-lg"></span></h4>
+	</div>
+	<div id="participant_activities" class="modal-body">
+		<div><span id="activity_msg"></span></div>
+		<div id="o_modal_caption" class="text-center"><h2>Presentations</h2></div>
+		<div id="oral_presentations"></div>
+		<div id="p_modal_caption" class="text-center"><h2>Posters</h2></div>
+		<div id="poster_presentations"></div>
+	</div>
+  </div>  
+</div>
+</div>
+
+<script src="program.js"></script>
+  <div>
+  <footer>Copyright &copy; <script>document.write((new Date()).getFullYear())</script>, Texas Wesleyan University, Fort Worth, Texas </footer>
+  </div>
+</div>   
+</body>
+</html>
